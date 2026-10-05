@@ -1,0 +1,66 @@
+<div class="sync-modal-overlay animate-fade-in" (click)="onClose()">
+  <div class="sync-modal-card" (click)="$event.stopPropagation()">
+    <!-- Header Icon -->
+    <div class="sync-modal-icon-wrapper">
+      <div class="sync-modal-icon-circle">
+        <svg class="sync-modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Title & Description -->
+    <h2 class="sync-modal-title">¡Sincronización Exitosa!</h2>
+    <p class="sync-modal-subtitle">
+      @if (syncResult.pbiId && syncResult.pbiId > 0) {
+        Los casos de prueba fueron creados como Work Items en Azure DevOps y vinculados al PBI padre.
+      } @else {
+        Los casos de prueba fueron creados como Work Items independientes en Azure DevOps.
+      }
+    </p>
+
+    <!-- Details Box -->
+    <div class="sync-modal-details">
+      <div class="sync-modal-detail-row">
+        <span class="sync-modal-detail-label">Tipo de Work Item</span>
+        <span class="sync-modal-detail-badge">Test Case</span>
+      </div>
+      <div class="sync-modal-detail-row">
+        <span class="sync-modal-detail-label">Cantidad Creada</span>
+        <span class="sync-modal-detail-value font-semibold">{{ syncResult.createdCount }} Casos de Prueba</span>
+      </div>
+      <div class="sync-modal-detail-row">
+        <span class="sync-modal-detail-label">Proyecto Destino</span>
+        <span class="sync-modal-detail-value">{{ syncResult.project }}</span>
+      </div>
+      <div class="sync-modal-detail-row">
+        <span class="sync-modal-detail-label">PBI Padre Vinculado</span>
+        <span class="sync-modal-detail-value">{{ syncResult.pbiId && syncResult.pbiId > 0 ? '#' + syncResult.pbiId : 'Sin vincular (independiente)' }}</span>
+      </div>
+    </div>
+
+    <!-- Created IDs Chips -->
+    @if (syncResult.testCaseIds && syncResult.testCaseIds.length > 0) {
+      <div class="sync-modal-ids">
+        <span class="sync-modal-ids-title">Work Items Generados:</span>
+        <div class="sync-modal-chips-container">
+          @for (id of syncResult.testCaseIds; track id) {
+            <a [href]="getWorkItemUrl(id)" target="_blank" rel="noopener noreferrer" class="sync-modal-chip">
+              #{{ id }}
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Action Button -->
+    <button class="sync-modal-btn-confirm" (click)="onClose()">
+      Entendido y Continuar
+    </button>
+  </div>
+</div>

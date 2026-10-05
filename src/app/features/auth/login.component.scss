@@ -1,0 +1,414 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+
+  @include respond-to('md') {
+    flex-direction: column;
+  }
+}
+
+// ----------------------------------------
+// Left Column: Branding & Value Props
+// ----------------------------------------
+.login-brand-panel {
+  flex: 1;
+  background-color: $color-bg-dark;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.12) 0%, transparent 40%);
+  color: $color-text-dark-primary;
+  padding: $spacing-8 $spacing-10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+  @include respond-to('md') {
+    padding: $spacing-6 $spacing-4;
+  }
+}
+
+.login-brand-content {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.login-brand-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+}
+
+.login-logo-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-lg;
+  background: $color-gemini-gradient;
+  @include flex-center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+.login-logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.login-brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-brand-name {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.login-brand-tag {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-indigo-light;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.login-ai-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+  padding: $spacing-1 $spacing-3;
+  border-radius: $radius-full;
+  background-color: rgba(79, 70, 229, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: #C7D2FE;
+  margin-bottom: $spacing-3;
+}
+
+.login-hero-title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: $spacing-3;
+
+  .gradient-text {
+    background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.login-hero-desc {
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  color: $color-text-dark-secondary;
+}
+
+// Metrics Card
+.login-metrics-card {
+  background-color: $color-surface-dark;
+  border: 1px solid $color-border-dark;
+  border-radius: $radius-xl;
+  padding: $spacing-5;
+  box-shadow: $shadow-lg;
+}
+
+.login-metrics-header {
+  @include flex-between;
+  margin-bottom: $spacing-4;
+  padding-bottom: $spacing-2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.login-metrics-title {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-dark-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.login-metrics-badge {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  padding: 2px 8px;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: $color-success;
+  border-radius: $radius-full;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.login-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-3;
+  text-align: center;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}
+
+.metric-value {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #ffffff;
+}
+
+.metric-label {
+  font-size: $font-size-xs;
+  color: $color-text-dark-muted;
+  line-height: 1.2;
+}
+
+.login-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+.login-feature-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  font-size: $font-size-sm;
+  color: $color-text-dark-secondary;
+
+  .feature-check-icon {
+    width: 18px;
+    height: 18px;
+    color: $color-success;
+    flex-shrink: 0;
+  }
+}
+
+.login-brand-footer {
+  font-size: $font-size-xs;
+  color: $color-text-dark-muted;
+  margin-top: $spacing-2;
+}
+
+// ----------------------------------------
+// Right Column: Form
+// ----------------------------------------
+.login-form-panel {
+  flex: 1;
+  background-color: $color-bg-light;
+  @include flex-center;
+  padding: $spacing-8 $spacing-6;
+
+  @include respond-to('md') {
+    padding: $spacing-6 $spacing-4;
+  }
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 440px;
+  background-color: $color-surface-light;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-xl;
+  padding: $spacing-8;
+  box-shadow: $shadow-md;
+
+  @include respond-to('sm') {
+    padding: $spacing-5;
+  }
+}
+
+.login-form-header {
+  margin-bottom: $spacing-6;
+}
+
+.login-form-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-1;
+}
+
+.login-form-subtitle {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.login-alert-error {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  background-color: $color-danger-light;
+  border: 1px solid $color-danger-border;
+  color: $color-danger;
+  padding: $spacing-3;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-5;
+
+  .alert-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}
+
+.form-label-row {
+  @include flex-between;
+}
+
+.form-label {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .input-icon {
+    position: absolute;
+    left: $spacing-3;
+    width: 18px;
+    height: 18px;
+    color: $color-text-muted;
+    pointer-events: none;
+  }
+
+  input {
+    padding-left: 2.5rem;
+    height: 42px;
+
+    &.input-invalid {
+      border-color: $color-danger;
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+      }
+    }
+  }
+
+  .btn-toggle-password {
+    position: absolute;
+    right: $spacing-3;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $color-text-muted;
+    @include flex-center;
+    padding: 0;
+
+    &:hover {
+      color: $color-text-secondary;
+    }
+  }
+}
+
+.field-error {
+  font-size: $font-size-xs;
+  color: $color-danger;
+  margin-top: 2px;
+}
+
+.form-check-row {
+  @include flex-between;
+  margin-top: $spacing-1;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-input {
+  width: 16px;
+  height: 16px;
+  accent-color: $color-primary;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.btn-login-submit {
+  @include button-primary;
+  height: 44px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  margin-top: $spacing-2;
+}
+
+// Demo Helper Box
+.demo-access-box {
+  margin-top: $spacing-6;
+  padding: $spacing-3 $spacing-4;
+  background-color: $color-surface-light-alt;
+  border: 1px dashed $color-border-light;
+  border-radius: $radius-lg;
+}
+
+.demo-access-header {
+  @include flex-between;
+  margin-bottom: $spacing-1;
+}
+
+.demo-tag {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-indigo;
+  text-transform: uppercase;
+}
+
+.btn-demo-autofill {
+  background: none;
+  border: none;
+  color: $color-primary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-primary-hover;
+  }
+}
+
+.demo-desc {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  line-height: 1.4;
+}

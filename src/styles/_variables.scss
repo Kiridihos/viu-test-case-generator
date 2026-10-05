@@ -1,0 +1,99 @@
+// ==========================================
+// Variables Globales - TestCase Generator
+// ==========================================
+
+// --- Paleta Oscura (Sidebar, Login & Acentos Oscuros) ---
+$color-bg-dark: #0B0F19;
+$color-surface-dark: #111827;
+$color-surface-dark-card: #1F2937;
+$color-surface-dark-hover: #374151;
+$color-border-dark: #374151;
+$color-text-dark-primary: #F9FAFB;
+$color-text-dark-secondary: #9CA3AF;
+$color-text-dark-muted: #6B7280;
+
+// --- Paleta Clara (Workspace & Cards) ---
+$color-bg-light: #F9FAFB;
+$color-surface-light: #FFFFFF;
+$color-surface-light-alt: #F3F4F6;
+$color-surface-light-hover: #E5E7EB;
+$color-border-light: #E5E7EB;
+$color-border-subtle: #F3F4F6;
+$color-text-primary: #111827;
+$color-text-secondary: #4B5563;
+$color-text-muted: #9CA3AF;
+
+// --- Colores de Acento & Semánticos ---
+$color-primary: #2563EB;
+$color-primary-hover: #1D4ED8;
+$color-primary-light: #EFF6FF;
+$color-primary-border: #BFDBFE;
+
+$color-indigo: #4F46E5;
+$color-indigo-hover: #4338CA;
+$color-indigo-light: #EEF2FF;
+
+$color-success: #10B981;
+$color-success-hover: #059669;
+$color-success-light: #ECFDF5;
+$color-success-border: #A7F3D0;
+
+$color-warning: #F59E0B;
+$color-warning-light: #FFFBEB;
+$color-warning-border: #FDE68A;
+
+$color-danger: #EF4444;
+$color-danger-hover: #DC2626;
+$color-danger-light: #FEF2F2;
+$color-danger-border: #FECACA;
+
+$color-azure: #0078D4;
+$color-gemini-gradient: linear-gradient(135deg, #4F46E5 0%, #2563EB 50%, #06B6D4 100%);
+$color-gemini-spark: #8B5CF6;
+
+// --- Tipografía ---
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-family-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+$font-size-xs: 0.75rem;     // 12px
+$font-size-sm: 0.875rem;    // 14px
+$font-size-base: 1rem;      // 16px
+$font-size-lg: 1.125rem;    // 18px
+$font-size-xl: 1.25rem;     // 20px
+$font-size-2xl: 1.5rem;     // 24px
+$font-size-3xl: 1.875rem;   // 30px
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// --- Espaciado y Radios ---
+$spacing-1: 0.25rem;  // 4px
+$spacing-2: 0.5rem;   // 8px
+$spacing-3: 0.75rem;  // 12px
+$spacing-4: 1rem;     // 16px
+$spacing-5: 1.25rem;  // 20px
+$spacing-6: 1.5rem;   // 24px
+$spacing-8: 2rem;     // 32px
+$spacing-10: 2.5rem;  // 40px
+
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 9999px;
+
+// --- Sombras ---
+$shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+$shadow-glow-primary: 0 0 20px rgba(37, 99, 235, 0.35);
+
+// --- Transiciones ---
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);

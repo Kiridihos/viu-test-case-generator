@@ -1,0 +1,161 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.sync-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(11, 15, 25, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  @include flex-center;
+  padding: $spacing-4;
+}
+
+.sync-modal-card {
+  background-color: $color-surface-light;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl;
+  width: 100%;
+  max-width: 480px;
+  padding: $spacing-8 $spacing-6;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.sync-modal-icon-wrapper {
+  margin: 0 auto $spacing-4 auto;
+}
+
+.sync-modal-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-full;
+  background-color: $color-success-light;
+  border: 2px solid $color-success-border;
+  color: $color-success;
+  margin: 0 auto;
+  @include flex-center;
+}
+
+.sync-modal-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.sync-modal-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-2;
+}
+
+.sync-modal-subtitle {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-6;
+  line-height: 1.5;
+}
+
+.sync-modal-details {
+  background-color: $color-surface-light-alt;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-lg;
+  padding: $spacing-4;
+  margin-bottom: $spacing-6;
+  text-align: left;
+}
+
+.sync-modal-detail-row {
+  @include flex-between;
+  padding: $spacing-2 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.sync-modal-detail-label {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.04em;
+}
+
+.sync-modal-detail-value {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+
+  &.font-semibold {
+    font-weight: $font-weight-semibold;
+    color: $color-success;
+  }
+}
+
+.sync-modal-detail-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  background-color: $color-indigo-light;
+  color: $color-indigo;
+  border-radius: $radius-sm;
+}
+
+.sync-modal-ids {
+  margin-bottom: $spacing-6;
+  text-align: left;
+}
+
+.sync-modal-ids-title {
+  display: block;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin-bottom: $spacing-2;
+  font-weight: $font-weight-medium;
+}
+
+.sync-modal-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-2;
+}
+
+.sync-modal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background-color: $color-primary-light;
+  color: $color-primary;
+  border: 1px solid $color-primary-border;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: #DBEAFE;
+    text-decoration: underline;
+  }
+}
+
+.sync-modal-btn-confirm {
+  @include button-primary;
+  width: 100%;
+  padding: $spacing-3;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-lg;
+}

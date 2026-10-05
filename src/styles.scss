@@ -1,0 +1,102 @@
+// ==========================================
+// Main Styles - TestCase Generator
+// ==========================================
+
+@use 'reset';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Google Fonts: Inter and JetBrains Mono
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+body {
+  font-family: $font-family-base;
+  background-color: $color-bg-light;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  overflow-x: hidden;
+  @include custom-scrollbar;
+}
+
+// Global Form Element Defaults
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: $spacing-2 $spacing-3;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background-color: #ffffff;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-md;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  &:disabled, &[readonly] {
+    background-color: $color-surface-light-alt;
+    color: $color-text-secondary;
+    cursor: not-allowed;
+    border-color: $color-border-light;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.4;
+  @include custom-scrollbar;
+}
+
+// Global Animations
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}

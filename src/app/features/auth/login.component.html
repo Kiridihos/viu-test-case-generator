@@ -1,0 +1,167 @@
+<div class="login-page">
+  <!-- Left Column: Dark Branding & Value Proposition -->
+  <aside class="login-brand-panel">
+    <div class="login-brand-content">
+
+      <!-- Hero Message -->
+      <main class="login-hero">
+
+        <h1 class="login-hero-title">
+          Generador de casos de prueba en segundos con <span class="gradient-text">Inteligencia Artificial</span>
+        </h1>
+        <p class="login-hero-desc">
+          Conecta tus historias de usuario de Azure DevOps, analiza requisitos automáticamente y exporta Test Cases
+          listos para ejecución desde Azure DevOps.
+        </p>
+      </main>
+
+      <!-- Highlights list -->
+      <ul class="login-feature-list">
+        <li class="login-feature-item">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="feature-check-icon">
+            <path fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd" />
+          </svg>
+          Casos positivos, alternativos y flujos de error
+        </li>
+        <li class="login-feature-item">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="feature-check-icon">
+            <path fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd" />
+          </svg>
+          Diseño tradicional paso a paso (Acción / Resultado esperado)
+        </li>
+        <li class="login-feature-item">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="feature-check-icon">
+            <path fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd" />
+          </svg>
+          Vinculación jerárquica directa al PBI padre en Azure
+        </li>
+      </ul>
+
+      <!-- Footer info -->
+      <footer class="login-brand-footer">
+        <span>© 2026 TestCase Generator • Diego Alexander Fino • VIU</span>
+      </footer>
+    </div>
+  </aside>
+
+  <!-- Right Column: Login Form -->
+  <main class="login-form-panel">
+    <div class="login-form-container">
+      <header class="login-form-header">
+        <h2 class="login-form-title">Iniciar sesión</h2>
+        <p class="login-form-subtitle">Ingresa tus credenciales para acceder al generador QA</p>
+      </header>
+
+      <!-- Error Alert -->
+      @if (errorMessage()) {
+      <div class="login-alert-error animate-fade-in">
+        <svg viewBox="0 0 20 20" fill="currentColor" class="alert-icon">
+          <path fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+            clip-rule="evenodd" />
+        </svg>
+        <span>{{ errorMessage() }}</span>
+      </div>
+      }
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input id="email" type="email" formControlName="email" placeholder="tu.usuario@dominio.com"
+              [class.input-invalid]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
+              autocomplete="email" />
+          </div>
+          @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+          <span class="field-error">Ingresa un correo electrónico válido</span>
+          }
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="password" class="form-label">Contraseña</label>
+          </div>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <input id="password" [type]="showPassword() ? 'text' : 'password'" formControlName="password"
+              placeholder="••••••••••••"
+              [class.input-invalid]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+              autocomplete="current-password" />
+            <button type="button" class="btn-toggle-password" (click)="togglePasswordVisibility()">
+              @if (showPassword()) {
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                </path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+              } @else {
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              }
+            </button>
+          </div>
+          @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+          <span class="field-error">La contraseña debe tener al menos 6 caracteres</span>
+          }
+        </div>
+
+        <!-- Remember Me Checkbox -->
+        <div class="form-check-row">
+          <label class="checkbox-label">
+            <input type="checkbox" formControlName="rememberMe" class="checkbox-input" />
+            <span class="checkbox-text">Recordar sesión</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-login-submit" [disabled]="isLoading()">
+          @if (isLoading()) {
+          <svg class="animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" stroke-opacity="0.25"></circle>
+            <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          <span>Autenticando...</span>
+          } @else {
+          <span>Iniciar sesión</span>
+          <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18">
+            <path fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+          }
+        </button>
+      </form>
+
+      <!-- Fast Demo Access Helper Card -->
+      <div class="demo-access-box">
+        <div class="demo-access-header">
+          <span class="demo-tag">Acceso Rápido</span>
+          <button type="button" class="btn-demo-autofill" (click)="fillDemoCredentials()">
+            Autocompletar credenciales
+          </button>
+        </div>
+        <p class="demo-desc">
+          Prueba el flujo inmediatamente con cuenta de prueba preconfigurada.
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
